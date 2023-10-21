@@ -172,7 +172,7 @@ app.get("/artists", function (request, response) {
 });
 //read artists----
 
-//read comments----
+//read  comments----
 app.get("/comments", function (request, response) {
   const query = `SELECT * FROM comments`;
   db.all(query, function (error, comments) {
