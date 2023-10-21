@@ -137,7 +137,7 @@ app.post("/login", function (request, response) {
 });
 
 // read——————————————————————————————————————————————————————————————————————————
-//read musics----
+//read    musics----
 app.get("/musics", function (request, response) {
   const query = `SELECT * FROM musics`;
   db.all(query, function (error, musics) {
