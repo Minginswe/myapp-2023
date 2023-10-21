@@ -1,0 +1,36 @@
+<div class="modal active" id="modal-id">
+  <a href="#close" class="modal-overlay" aria-label="Close"></a>
+  <div class="modal-container">
+    <div class="modal-header">
+      <a href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
+      <div class="modal-title h5"></div>
+    </div>
+    <div class="modal-body">
+      <div class="content">
+        <h1>Login</h1>
+
+        {{#if failedToLogin}}
+          <p>Wrong credentials!</p>
+        {{/if}}
+
+        <form action="/login" method="post">
+          <div style="margin-bottom:5px">
+            Username:
+            <input type="text" name="username" />
+          </div>
+
+          <div style="margin-bottom:5px">
+            Password:
+            <input type="password" name="password" />
+          </div>
+
+          <input type="submit" value="Login" />
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      ...
+    </div>
+  </div>
+
+</div>

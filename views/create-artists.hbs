@@ -1,0 +1,11 @@
+<h1 class="juzhong2">Create artists</h1>
+
+{{#if errorMessages.length}}
+  <p>Couldn't create the artists because:</p>
+  <ul>
+    {{#each errorMessages}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+

@@ -1,0 +1,179 @@
+<h1 class="juzhong2">Musics</h1>
+
+{{#if errorMessages.length}}
+  <p class="juzhong">Couldn't fetch the musics because:</p>
+  <ul>
+    {{#each errorMessages}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{else}}
+
+{{#if musics.length}}
+  <ul>
+      {{#each musics}}
+        <li class="item">
+          <a href="/musics/{{mid}}">
+            {{title}}
+          </a>
+            ({{musicGenre}})
+            ({{grade}}/10)
+               <form action="/musics/delete/{{mid}}" method="post" style="display:contents" >
+               <input type="submit" value="Delete">
+               </form>
+              <a href="#{{mid}}"><button>Update</button></a>
+              <div class="box-below">
+                <a href="#{{mid}}commentsModal" class="btn btn-primary ">Add Comment</a>
+                <a href="#{{mid}}artistsModal" class="btn btn-primary ">Add Artist</a>
+              </div>
+        </li> 
+              
+<div class="modal" id="{{mid}}">
+  <a href="#close" class="modal-overlay" aria-label="Close"></a>
+    <div class="modal-container">
+      <div class="modal-header">
+        <a href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
+           <div class="modal-title h5">Update music</div>
+      </div>
+   <div class="modal-body">
+     <div class="content">
+       <h1>Update</h1>
+       {{#if errorMessages.length}}  
+       <p>Couldn't update the music because:</p>
+       <ul>
+         {{#each errorMessages}}
+           <li>{{this}}</li>
+         {{/each}}
+       </ul>
+       {{/if}}
+       <form action="/musics/update/{{mid}}" method="post" >
+         <div>
+           <div style="margin-bottom:5px">
+             Title:
+             <input type="text" name="title" value="{{title}}" />
+           </div>
+           <div style="margin-bottom:5px">
+             MusicGenre:
+             <input type="text" name="musicGenre" value="{{musicGenre}}" />
+           </div>
+           <div style="margin-bottom:5px">
+             Grade:
+            <input type="number" name="grade" value="{{grade}}" />
+           </div>
+ 
+           <input type="submit" value="update" />
+ 
+          </div>
+       </form>
+     </div>
+   </div>
+    <div class="modal-footer">
+      ...
+    </div>
+  </div>
+</div>
+              
+<div class="modal" id="{{mid}}commentsModal">
+  <a href="#close" class="modal-overlay" aria-label="Close"></a>
+  <div class="modal-container">
+    <div class="modal-header">
+      <a href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
+      <div class="modal-title h5">Add comment</div>
+    </div>
+      <div class="modal-body">
+        <div class="content">
+          <h1>Create-comment</h1>
+          {{#if errorMessages.length}}  
+          <p>Couldn't Create the comment because:</p>
+          <ul>
+          {{#each errorMessages}}
+            <li>{{this}}</li>
+          {{/each}}
+          </ul>
+         {{/if}}
+         <form action="/musics/{{mid}}/comments/create" method="post" >
+           <div>
+             <div style="margin-bottom:5px">
+               Comments:
+               <input type="text" name="comment" value="{{comment}}" />
+             </div>
+             <div style="margin-bottom:5px">
+               Time:
+               <input type="text" name="time" value="{{time}}" />
+             </div>
+             <input type="submit" value="create" />
+           </div>
+         </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      ...
+    </div>
+  </div>
+</div>
+              
+<div class="modal" id="{{mid}}artistsModal">
+  <a href="#close" class="modal-overlay" aria-label="Close"></a>
+  <div class="modal-container">
+    <div class="modal-header">
+      <a href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
+      <div class="modal-title h5">Add artist</div>
+    </div>
+      <div class="modal-body">
+        <div class="content">
+          <h1>Create-artist</h1>
+          {{#if errorMessages.length}}  
+          <p>Couldn't Create the artist because:</p>
+          <ul>
+          {{#each errorMessages}}
+           <li>{{this}}</li>
+          {{/each}}
+          </ul>
+          {{/if}}
+          <form action="/musics/{{mid}}/artists/create" method="post" >
+            <div>
+              <div style="margin-bottom:5px">
+                Artists:
+                <input type="text" name="artistName" value="{{artistName}}" />
+              </div>
+              <div style="margin-bottom:5px">
+               Type:
+                <input type="text" name="artistType" value="{{artistType}}" />
+              </div>
+              <input type="submit" value="create" />
+            </div>
+          </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      ...
+    </div>
+  </div>
+</div>
+
+      {{/each}}
+</ul>
+
+  {{else}}
+    <p class="juzhong">We have no musics to recommend at the moment.</p>
+  {{/if}}
+
+{{/if}}
+<a href="/musics/create" class="juzhong btn btn-primary">Create New music</a>
+
+         
+{{!-- the pagination quoted from spectre https://picturepan2.github.io/spectre/components/accordions.html --}}
+<ul class="pagination" class="juzhong">
+  <li class="page-item disabled">
+    <a href="#" tabindex="-1">Previous</a>
+  </li>
+  <li class="page-item">
+    <a href="#">1</a>
+  </li>
+  <li class="page-item">
+    <a href="#">2</a>
+
+  <li class="page-item">
+    <a href="#">Next</a>
+  </li>
+</ul>

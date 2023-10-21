@@ -1,0 +1,10 @@
+<h1 class="juzhong2">Delete artist</h1>
+
+{{#if errorMessages.length}}
+  <p>Couldn't delete the music because:</p>
+  <ul>
+    {{#each errorMessages}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}

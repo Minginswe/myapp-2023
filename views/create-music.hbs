@@ -1,0 +1,30 @@
+<h1 class="juzhong2">Create</h1>
+
+{{#if errorMessages.length}}
+  <p>Couldn't create the music because:</p>
+  <ul>
+    {{#each errorMessages}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+<form action="/musics/create" method="post">
+  <div class="juzhong">
+    <div style="margin-bottom:5px">
+      Title:
+      <input type="text" name="title" value="{{title}}" />
+    </div>
+    <div style="margin-bottom:5px">
+      musicGenre:
+      <input type="text" name="genre" value="{{genre}}" />
+    </div>
+    <div>
+      Grade:
+      <input type="number" name="grade" value="{{grade}}" />
+    </div>
+
+    <input type="submit" value="Create" />
+  </div>
+
+</form>

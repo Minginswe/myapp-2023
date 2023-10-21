@@ -1,0 +1,77 @@
+<h1 class="juzhong2">Comments</h1>
+
+{{#if errorMessages.length}}
+  <p class="juzhong">Couldn't fetch the comments because:</p>
+  <ul>
+    {{#each errorMessages}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{else}}
+  {{#if comments.length}}
+    <ul class="juzhong">
+      {{#each comments}}
+        <li>
+          {{comment}}
+            <form action="/comments/deleteComment/{{cid}}" method="post"  style="display: contents;">
+              <input type="submit" value="Delete">  
+            </form>
+            <a href="#{{cid}}"><button>Update</button></a>
+        </li>
+
+ <div class="modal" id="{{cid}}">
+   <a href="#close" class="modal-overlay" aria-label="Close"></a>
+   <div class="modal-container">
+     <div class="modal-header">
+       <a href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
+       <div class="modal-title h5">Modal title</div>
+     </div>
+     <div class="modal-body">
+       <div class="content">
+         <h1>Update</h1>
+   {{#if errorMessages.length}}  
+   <p>Couldn't update the music because:</p>
+   <ul>
+     {{#each errorMessages}}
+       <li>{{this}}</li>
+     {{/each}}
+   </ul>
+ {{/if}}
+ <form action="/comments/update/{{cid}}" method="post" >
+   <div>
+     <div style="margin-bottom:5px">
+       Comments:
+       <input type="text" name="comment" value="{{comment}}" />
+     </div>
+     <input type="submit" value="update" />
+   </div>
+ </form>
+       </div>
+     </div>
+     <div class="modal-footer">
+       ...
+     </div>
+   </div>
+ </div>
+       {{/each}}
+     </ul>
+   {{else}}
+     <p class="juzhong">We have no comments at the moment.</p>
+   {{/if}}
+ {{/if}}
+           
+{{!-- the pagination quoted from spectre https://picturepan2.github.io/spectre/components/accordions.html --}}
+<ul class="pagination" class="juzhong">
+  <li class="page-item disabled">
+    <a href="#" tabindex="-1">Previous</a>
+  </li>
+  <li class="page-item active">
+    <a href="#">1</a>
+  </li>
+  <li class="page-item">
+    <a href="#">2</a>
+
+  <li class="page-item">
+    <a href="#">Next</a>
+  </li>
+</ul>
