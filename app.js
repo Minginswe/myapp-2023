@@ -13,7 +13,7 @@ const sessionDB = new sqlite("sessions.db");
 const HASDED_VALUE_PASSWORD =
   "$2a$10$g7CXcZp9.bLsV.g.EnUzgOIiVVd3pJS.3gBOSAciWUP8SjkDtO96m";
 
-// new a database name JinmignWang
+// new a database name Jinmign Wang
 const db = new sqlite3.Database("JinmingWang-database.db");
 
 db.run(`
