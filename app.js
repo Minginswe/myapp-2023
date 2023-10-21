@@ -65,7 +65,7 @@ app.use(
   })
 );
 
-// The following  lines of code was adapted from https://www.npmjs.com/package/better-sqlite3-session-store Accessed: 2023-01-12
+// The following  lines of code was  adapted from https://www.npmjs.com/package/better-sqlite3-session-store Accessed: 2023-01-12
 app.use(
   expressSession({
     store: new SqliteStore({
